@@ -1,113 +1,204 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
+/* Tokens semánticos de shadcn mapeados al design system aprobado. */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --background: #faf7f0;
+  --foreground: #2b2b22;
+  --card: #ffffff;
+  --card-foreground: #2b2b22;
+  --popover: #ffffff;
+  --popover-foreground: #2b2b22;
+  --primary: #6b7a3f;
+  --primary-foreground: #faf7f0;
+  --secondary: #f3eee3;
+  --secondary-foreground: #3f4a26;
+  --muted: #f3eee3;
+  --muted-foreground: #6e6a5c;
+  --accent: #f3eee3;
+  --accent-foreground: #3f4a26;
+  --destructive: #c57b4e;
+  --border: #e7e2d3;
+  --input: #e7e2d3;
+  --ring: #6b7a3f;
+  --chart-1: #c57b4e;
+  --chart-2: #b7c089;
+  --chart-3: #6b7a3f;
+  --chart-4: #3f4a26;
+  --chart-5: #d9a441;
+  --chart-grid: #e7e2d3;
+  --chart-axis: #d8d2c2;
+  --chart-label: #9c9683;
+  --radius: 0.75rem;
+}
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-heading: var(--font-serif);
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  /* Todas las transiciones del diseño usan `ease`. */
+  --default-transition-timing-function: ease;
+
+  /* Paleta de marca */
+  --color-olive: #6b7a3f;
+  --color-olive-dark: #3f4a26;
+  --color-olive-light: #7c8b4a;
+  --color-olive-pale: #b7c089;
+  --color-terracota: #c57b4e;
+  --color-ambar: #d9a441;
+  --color-cream: #faf7f0;
+  --color-cream-100: #f3eee3;
+  --color-cream-200: #e7e2d3;
+  --color-sand: #efe9da;
+  --color-ink: #2b2b22;
+  --color-subtle: #9c9683;
+  --color-footer-fg: #c9c4b2;
+  --color-scrim: #14140c;
+  --color-scrim-soft: #1f1f14;
+
+  /* Radios */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 12px;
+  --radius-2xl: 20px;
+  --radius-badge: 14px;
+
+  /* Escala tipográfica */
+  --text-eyebrow: 13px;
+  --text-eyebrow--line-height: normal;
+  --text-eyebrow--letter-spacing: 1.6px;
+  --text-eyebrow--font-weight: 700;
+  --text-brand: 18px;
+  --text-brand--line-height: normal;
+  --text-brand-sm: 15px;
+  --text-brand-sm--line-height: normal;
+  --text-navlink: 13.5px;
+  --text-navlink--line-height: normal;
+  --text-navlink-sm: 12.5px;
+  --text-navlink-sm--line-height: normal;
+  --text-caption: 15px;
+  --text-caption--line-height: normal;
+  --text-hero-title: clamp(26px, 4vw, 46px);
+  --text-hero-subtitle: clamp(14px, 1.6vw, 18px);
+  --text-section-title: 34px;
+  --text-section-title--line-height: 1.2;
+  --text-section-title-sm: 27px;
+  --text-section-title-sm--line-height: 1.2;
+  --text-body: 16.5px;
+  --text-body--line-height: 1.75;
+  --text-body-sm: 14.5px;
+  --text-body-sm--line-height: 1.75;
+  --text-card-title: 18px;
+  --text-card-title--line-height: normal;
+  --text-chip: 13.5px;
+  --text-chip--line-height: 1.5;
+  --text-kpi: 38px;
+  --text-kpi--line-height: 1;
+  --text-kpi-sm: 30px;
+  --text-kpi-sm--line-height: 1;
+  --text-kpi-label: 13.5px;
+  --text-kpi-label--line-height: 1.5;
+  --text-kpi-source: 11.5px;
+  --text-kpi-source--line-height: normal;
+  --text-chart-title: 12.5px;
+  --text-chart-title--line-height: normal;
+  --text-chart-sub: 12px;
+  --text-chart-sub--line-height: normal;
+  --text-placeholder: 13px;
+  --text-placeholder--line-height: 1.8;
+  --text-footer-title: 20px;
+  --text-footer-title--line-height: normal;
+  --text-ref: 13px;
+  --text-ref--line-height: 1.7;
+  --text-note: 12px;
+  --text-note--line-height: normal;
+  --tracking-subtle: 0.2px;
+  --tracking-chart-title: 0.6px;
+  --tracking-map: 1.2px;
+  --leading-hero-title: 1.18;
+  --leading-hero-subtitle: 1.6;
+
+  /* Medidas estructurales */
+  --container-page: 1180px;
+  --container-section-head: 680px;
+  --container-hero-title: 900px;
+  --container-hero-subtitle: 640px;
+  --container-map-text: 320px;
+  --container-chip: 300px;
+  --spacing-gutter: 22px;
+  --spacing-nav: 66px;
+  --spacing-anchor: 84px;
+  --spacing-hero: 620px;
+  --spacing-hero-sm: 520px;
+  --spacing-arrow: 46px;
+  --spacing-arrow-sm: 38px;
+  --spacing-badge: 52px;
+  --spacing-kpi-gap: 22px;
+  --spacing-map: 340px;
+  --spacing-dot: 8px;
+  --spacing-dot-wide: 26px;
+  --spacing-dot-gap: 9px;
+
+  /* Puntos de ruptura del diseño (max-width 980px y 620px) */
+  --breakpoint-tablet: 621px;
+  --breakpoint-desktop: 981px;
+
+  /* Sombras */
+  --shadow-card: 0 4px 22px rgb(43 43 34 / 0.07);
+  --shadow-card-hover: 0 14px 34px rgb(43 43 34 / 0.13);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  html {
+    @apply scroll-smooth font-sans;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  body {
+    @apply bg-background text-foreground antialiased;
   }
-}
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
   }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+  [id] {
+    @apply scroll-mt-anchor;
   }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
