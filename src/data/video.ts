@@ -8,6 +8,6 @@ export const videoContent: VideoContent = {
   description:
     "Un recorrido visual por los retos del manejo de residuos y la huella " +
     "ambiental que deja la actividad turística en los destinos naturales.",
-  youtubeUrl: "https://www.youtube.com/watch?v=2B9QTg_-nyc",
+  youtubeUrl: "https://www.youtube.com/watch?v=rZcuZ6LGRuI",
   title: "Turismo ecológico y residuos sólidos",
 };
