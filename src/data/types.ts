@@ -84,3 +84,37 @@ export interface Reference {
   id: string;
   segments: ReferenceSegment[];
 }
+
+export interface VideoContent {
+  heading: SectionHeading;
+  description: string;
+  /** Enlace de YouTube en cualquier formato (watch, youtu.be, shorts, embed). */
+  youtubeUrl: string;
+  title: string;
+}
+
+export interface WasteScenarioPoint {
+  id: string;
+  scenario: string;
+  /** Miles de millones de toneladas al año. */
+  tonnes: number;
+}
+
+export interface WasteGauge {
+  id: string;
+  /** Porcentaje entre 0 y 100. */
+  percent: number;
+  display: string;
+  label: string;
+  tone: FigureTone;
+}
+
+export type MilestoneScope = "colombia" | "internacional";
+
+export interface Milestone {
+  id: string;
+  year: number;
+  scope: MilestoneScope;
+  title: string;
+  description: string;
+}

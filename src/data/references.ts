@@ -7,6 +7,21 @@ export const referencesNote =
 
 export const references: Reference[] = [
   {
+    id: "banco-mundial-2026",
+    segments: [
+      { text: "Banco Mundial. (2026). " },
+      {
+        text: "What a Waste 3.0: Global Snapshot of Solid Waste Management toward Circularity until 2050",
+        italic: true,
+      },
+      { text: ". Washington, D. C.: World Bank. " },
+      {
+        text: "worldbank.org/what-a-waste",
+        href: "https://www.worldbank.org/en/publication/what-a-waste",
+      },
+    ],
+  },
+  {
     id: "brenner-1999",
     segments: [
       {
@@ -14,6 +29,14 @@ export const references: Reference[] = [
       },
       { text: "Investigaciones Geográficas", italic: true },
       { text: "." },
+    ],
+  },
+  {
+    id: "congreso-2022",
+    segments: [
+      {
+        text: "Congreso de la República de Colombia. (2022). Ley 2232 de 2022, por la cual se establecen medidas tendientes a la reducción gradual de la producción y consumo de ciertos productos plásticos de un solo uso.",
+      },
     ],
   },
   {
@@ -27,6 +50,42 @@ export const references: Reference[] = [
       {
         text: "doi.org/10.1038/s41558-018-0141-x",
         href: "https://doi.org/10.1038/s41558-018-0141-x",
+      },
+    ],
+  },
+  {
+    id: "minambiente-2018",
+    segments: [
+      {
+        text: "Ministerio de Ambiente y Desarrollo Sostenible. (2018). Resolución 1407 de 2018, por la cual se reglamenta la gestión ambiental de los residuos de envases y empaques.",
+      },
+    ],
+  },
+  {
+    id: "minambiente-2023",
+    segments: [
+      {
+        text: "Ministerio de Ambiente y Desarrollo Sostenible. (2023). Decreto 2192 de 2023, por el cual se reglamenta parcialmente la Ley 2232 de 2022.",
+      },
+    ],
+  },
+  {
+    id: "onu-turismo-glasgow",
+    segments: [
+      { text: "ONU Turismo. (2021). " },
+      { text: "The Glasgow Declaration on Climate Action in Tourism", italic: true },
+      { text: ". COP26." },
+    ],
+  },
+  {
+    id: "onu-turismo-gtpi",
+    segments: [
+      { text: "ONU Turismo & PNUMA. (2020). " },
+      { text: "Global Tourism Plastics Initiative", italic: true },
+      { text: ". " },
+      {
+        text: "untourism.int/sustainable-development/global-tourism-plastics-initiative",
+        href: "https://www.untourism.int/sustainable-development/global-tourism-plastics-initiative",
       },
     ],
   },

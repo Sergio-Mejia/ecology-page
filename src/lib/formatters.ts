@@ -10,3 +10,11 @@ export function formatDecimal(value: number): string {
 export function formatLitres(value: number): string {
   return `${formatDecimal(value)} L`;
 }
+
+const preciseFormatter = new Intl.NumberFormat("es-CO", {
+  maximumFractionDigits: 2,
+});
+
+export function formatPrecise(value: number): string {
+  return preciseFormatter.format(value);
+}
